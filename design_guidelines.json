@@ -1,0 +1,74 @@
+{
+  "theme": "dark",
+  "archetype": "5 (Jewel & Luxury / Apple Dark Editorial)",
+  "colors": {
+    "background": "#0F0F0F",
+    "text_primary": "#F0EDE8",
+    "text_secondary": "#9B9B9B",
+    "accent": "#A3BCA7",
+    "cards": "#171717",
+    "borders": "rgba(255, 255, 255, 0.08)",
+    "glass": "rgba(23, 23, 23, 0.6)"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Cormorant Garamond, serif",
+      "weights": ["300", "400", "600"],
+      "tracking": "tracking-tight",
+      "usage": "Use for all H1, H2, H3. H1 should be fluid text-5xl to text-7xl max. Elegant, spaced. NEVER use Inter for headings."
+    },
+    "body": {
+      "font_family": "SF Pro Display, Inter, -apple-system, sans-serif",
+      "weights": ["300", "400", "500"],
+      "tracking": "tracking-normal",
+      "usage": "Use for all paragraphs, labels, and small text. Clean, modern, highly legible."
+    }
+  },
+  "layout": {
+    "max_width": "max-w-[1200px] mx-auto px-6 md:px-12",
+    "section_spacing": "py-24 md:py-40",
+    "grid_system": "Bento grids for features, heavy use of asymmetrical layouts. Mobile-first stacked layout."
+  },
+  "animations": {
+    "libraries_required": ["gsap", "@gsap/react", "lenis", "lucide-react"],
+    "scroll_behavior": "Use Lenis for buttery smooth momentum scrolling. The scrolling must feel heavy, precise, and premium.",
+    "reveal_pattern": "Fade in and translate up (y: 40 to y: 0) on scroll using GSAP ScrollTrigger.",
+    "sticky_scroll": "For the Sticky Scroll Story: Create a 400vh container. Inside, a sticky top-0 100vh div. Use GSAP ScrollTrigger with scrub: 1 to crossfade the 5 iPhone screen images and their corresponding text captions as the user scrolls down the 400vh space. Apple-style precision.",
+    "micro_interactions": "Subtle scale-up on hover for cards (scale: 1.02), dimming siblings if possible."
+  },
+  "components": {
+    "iphone_mockup": "Use pure CSS to create an ultra-premium iPhone bezel. classes: 'rounded-[3rem] border-[8px] border-[#171717] bg-[#0F0F0F] ring-1 ring-white/10 shadow-2xl overflow-hidden relative'. Insert app screenshot images inside this container. Add a CSS pill for the dynamic island at top-center.",
+    "glass_panels": "For sticky headers or floating elements, use backdrop-blur-xl bg-[#171717]/60 with a 1px border-white/5.",
+    "buttons": "App Store button placeholder should be an elegant #F0EDE8 background with #0F0F0F text, rounded-full, px-8 py-3. Hover: scale 0.98, background pure white."
+  },
+  "media": {
+    "app_screenshots": {
+      "dashboard": "https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/vfohqkun_01_dashboard.png",
+      "coach": "https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/1gk2husm_02_coach.png",
+      "active_workout": "https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/sub3xc0t_03_active_workout.png",
+      "workouts": "https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/utquczw3_04_workouts.png",
+      "stats": "https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/0oohm72t_05_stats.png"
+    },
+    "textures_and_backgrounds": {
+      "hero_glow": "https://images.unsplash.com/photo-1774677784677-315413778580?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHNvZnQlMjBncmVlbiUyMGdsb3clMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzU4NjU4NzN8MA&ixlib=rb-4.1.0&q=85",
+      "dark_metal": "https://images.unsplash.com/photo-1759338245039-906f7558e743?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwyfHxkYXJrJTIwYWJzdHJhY3QlMjBtaW5pbWFsJTIwdGV4dHVyZXxlbnwwfHx8fDE3NzU4NjU4NTd8MA&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "sections_breakdown": [
+    {"name": "Hero", "description": "Large serif headline, elegant subtitle, primary CTA. A large CSS iPhone mockup centered, slightly tilted or straight, containing '01_dashboard.png'. A subtle green glow ('hero_glow' image) positioned absolutely behind the iPhone with heavy blur (e.g. blur-3xl opacity-20)."},
+    {"name": "Social Proof", "description": "Horizontal strip displaying key stats (e.g., '1M+ Workouts Logged') with a delicate border-y border-white/5. Text fades in on scroll."},
+    {"name": "Sticky Scroll Story", "description": "400vh container. Left/Right split on desktop, stacked on mobile. A sticky iPhone frame in the center/side. As scroll scrub progresses, opacity of texts on the side crossfades, and the image inside the iPhone transitions from 01 -> 02 -> 03 -> 04 -> 05."},
+    {"name": "Swipe Logging UX", "description": "A bento card highlighting the swipe logging feature. Dark card background (#171717) with the dark_metal texture overlaid at 10% opacity. Text describes the feature."},
+    {"name": "Progress & Analytics", "description": "Showcase of the '05_stats.png' inside a sleek container, bordered by white/5, emphasizing the premium data visualization."},
+    {"name": "Muscle Recovery", "description": "Editorial layout. Large serif number '03' followed by 'Recovery. Redefined.' Text block adjacent to a sleek visual or metric."},
+    {"name": "Workout Library", "description": "Grid of smaller cards or a carousel showing workout categories. Clean sans-serif typography for card titles."},
+    {"name": "Achievements", "description": "Minimalist grid showing abstract badge placeholders. Soft green accents for unlocked states."},
+    {"name": "Onboarding", "description": "Step-by-step text reveals. Use GSAP ScrollTrigger to highlight the current step (white text) while muting others (#9B9B9B)."},
+    {"name": "Profile/Personalization", "description": "Dark sophisticated section showing how the app tailors to the user. '02_coach.png' highlighted."},
+    {"name": "Final CTA", "description": "Massive serif typography: 'Your peak awaits.' Soft green accent underline. App Store download button. High whitespace."}
+  ],
+  "accessibility_and_testing": {
+    "testing_attributes": "All interactive elements, buttons, and form inputs MUST include `data-testid` (e.g., `data-testid='download-app-hero'`).",
+    "contrast": "Ensure #9B9B9B against #0F0F0F passes WCAG AA for normal text. Avoid using the soft green #A3BCA7 for small text, use it for accents, borders, or large graphical text only."
+  }
+}
