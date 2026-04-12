@@ -12,6 +12,11 @@ const IMAGES = {
   activeWorkout: 'https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/sub3xc0t_03_active_workout.png',
   workouts: 'https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/utquczw3_04_workouts.png',
   stats: 'https://customer-assets.emergentagent.com/job_d15cbc81-82ab-4c61-9d12-fff20d248362/artifacts/0oohm72t_05_stats.png',
+  achievements: 'https://customer-assets.emergentagent.com/job_smart-training-12/artifacts/ay4oo0cz_06_achievements.png',
+  muscleMap: 'https://customer-assets.emergentagent.com/job_smart-training-12/artifacts/nwx2buaq_07_muscle_map.png',
+  whyThisPlan: 'https://customer-assets.emergentagent.com/job_smart-training-12/artifacts/mfi073kk_08_why_this_plan.png',
+  onboarding: 'https://customer-assets.emergentagent.com/job_smart-training-12/artifacts/411802an_09_onboarding.png',
+  profile: 'https://customer-assets.emergentagent.com/job_smart-training-12/artifacts/ba5jlx64_10_profile.png',
 };
 
 const featureSections = [
@@ -33,7 +38,7 @@ const featureSections = [
     id: 'muscle-recovery',
     headline: 'Train hard. Not stupid.',
     subheadline: 'Know exactly which muscles need rest',
-    imageSrc: IMAGES.dashboard,
+    imageSrc: IMAGES.muscleMap,
     layout: 'left',
   },
   {
@@ -47,21 +52,21 @@ const featureSections = [
     id: 'achievements-section',
     headline: 'Progress you can feel',
     subheadline: null,
-    imageSrc: IMAGES.stats,
+    imageSrc: IMAGES.achievements,
     layout: 'left',
   },
   {
     id: 'onboarding-section',
     headline: 'Built around you from day one',
     subheadline: null,
-    imageSrc: IMAGES.coach,
+    imageSrc: IMAGES.onboarding,
     layout: 'right',
   },
   {
     id: 'profile-section',
     headline: 'Your training, your data',
     subheadline: null,
-    imageSrc: IMAGES.stats,
+    imageSrc: IMAGES.profile,
     layout: 'left',
   },
 ];

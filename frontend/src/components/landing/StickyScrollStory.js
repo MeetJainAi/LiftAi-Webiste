@@ -17,7 +17,7 @@ export default function StickyScrollStory({ images }) {
       subtitle: 'Built from your recovery, history, and performance',
     },
     {
-      image: images.dashboard,
+      image: images.whyThisPlan,
       title: 'It shows you exactly why',
       subtitle: 'Every decision is backed by real data',
     },
