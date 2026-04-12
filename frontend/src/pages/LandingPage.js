@@ -121,6 +121,7 @@ export default function LandingPage() {
 
   return (
     <main className="bg-[#0F0F0F] min-h-screen" data-testid="landing-page">
+      <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
       <HeroSection dashboardImage={IMAGES.dashboard} />
       <SocialProof />
