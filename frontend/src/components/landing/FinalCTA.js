@@ -37,9 +37,10 @@ export default function FinalCTA() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email address"
             data-testid="waitlist-email-input"
-            className="w-full sm:flex-1 bg-[#171717] text-[#F0EDE8] placeholder-[#9B9B9B]/50
-                       rounded-full px-6 py-3.5 text-sm outline-none border border-white/[0.06]
-                       focus:border-[#A3BCA7]/40 transition-colors duration-300"
+            className="w-full sm:flex-1 bg-[#1C1C1C] text-[#F0EDE8] placeholder-[#666]
+                       rounded-full px-6 py-3.5 text-sm outline-none border border-white/10
+                       focus:border-[#A3BCA7]/50 transition-colors duration-300
+                       ring-1 ring-white/[0.04]"
           />
           <button
             type="submit"
