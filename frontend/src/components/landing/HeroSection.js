@@ -55,15 +55,19 @@ export default function HeroSection({ dashboardImage }) {
               </svg>
               Download on App Store
             </a>
-            <a
-              href="#sticky-scroll"
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById('sticky-scroll') || document.getElementById('sticky-scroll-mobile');
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+              }}
               data-testid="hero-see-how-btn"
               className="inline-flex items-center gap-2 text-[#9B9B9B] rounded-full px-8 py-3.5 text-sm
                          border border-white/10 hover:border-white/20 hover:text-[#F0EDE8]
-                         transition-all duration-300"
+                         transition-all duration-300 cursor-pointer bg-transparent"
             >
               See how it works
-            </a>
+            </button>
           </div>
         </div>
 
