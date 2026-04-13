@@ -212,3 +212,137 @@ body {
   opacity: 0;
   transform: scale(0.97);
 }
+
+/* === PREMIUM EFFECTS === */
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #F0EDE8 0%, #A3BCA7 40%, #7FA882 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated green glow behind phone */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(1.05); }
+}
+
+.phone-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(8px); opacity: 0.8; }
+}
+
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Badge pulse dot */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(163, 188, 167, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(163, 188, 167, 0); }
+}
+
+.pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* Animated gradient border */
+@keyframes borderShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shimmer-border {
+  background: linear-gradient(270deg, rgba(163,188,167,0.3), rgba(163,188,167,0.05), rgba(163,188,167,0.3));
+  background-size: 200% 200%;
+  animation: borderShimmer 3s ease-in-out infinite;
+}
+
+/* Bento card hover glow */
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.5s var(--lift-ease), transform 0.5s var(--lift-ease);
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(163,188,167,0.06) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s var(--lift-ease);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.bento-card:hover {
+  border-color: rgba(163, 188, 167, 0.15);
+  transform: translateY(-2px);
+}
+
+/* CTA glow input */
+.cta-input-wrapper {
+  position: relative;
+  border-radius: 9999px;
+  padding: 1px;
+}
+
+.cta-input-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: linear-gradient(270deg, rgba(163,188,167,0.4), rgba(163,188,167,0.05), rgba(163,188,167,0.4));
+  background-size: 200% 200%;
+  animation: borderShimmer 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+.cta-input-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 9999px;
+  background: #171717;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--lift-ease), transform 0.6s var(--lift-ease);
+}
+
+.stagger-children.revealed > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: translateY(0); }
+
+/* Hero stagger */
+.animate-hero-badge {
+  animation: heroFadeInUp 0.8s var(--lift-ease) 0s both;
+}
+
+/* Number highlight */
+.number-highlight {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}

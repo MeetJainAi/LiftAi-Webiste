@@ -25,15 +25,23 @@ export default function Navbar() {
         >
           LiftAi
         </span>
-        <a
-          href="#"
-          data-testid="nav-download-btn"
-          className="bg-[#F0EDE8] text-[#0F0F0F] rounded-full px-6 py-2 text-sm font-medium
-                     hover:bg-white transition-all duration-300 hover:-translate-y-[1px]
-                     hover:shadow-lg hover:shadow-white/5"
-        >
-          Download
-        </a>
+
+        <div className="flex items-center gap-4">
+          {/* Early access badge */}
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] text-[#A3BCA7]/70 tracking-[0.15em] uppercase">
+            <span className="w-1 h-1 rounded-full bg-[#A3BCA7]/50" />
+            Early Access
+          </span>
+          <a
+            href="#"
+            data-testid="nav-download-btn"
+            className="bg-[#F0EDE8] text-[#0F0F0F] rounded-full px-6 py-2 text-sm font-medium
+                       hover:bg-white transition-all duration-300 hover:-translate-y-[1px]
+                       hover:shadow-lg hover:shadow-white/5"
+          >
+            Download
+          </a>
+        </div>
       </div>
     </nav>
   );

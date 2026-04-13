@@ -7,6 +7,7 @@ import HeroSection from '@/components/landing/HeroSection';
 import SocialProof from '@/components/landing/SocialProof';
 import StickyScrollStory from '@/components/landing/StickyScrollStory';
 import FeatureShowcase from '@/components/landing/FeatureShowcase';
+import BentoGrid from '@/components/landing/BentoGrid';
 import FinalCTA from '@/components/landing/FinalCTA';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,44 +34,16 @@ const featureSections = [
     layout: 'centered',
   },
   {
-    id: 'progress-section',
-    headline: 'Every rep, every gain — tracked',
-    subheadline: null,
-    imageSrc: IMAGES.stats,
-    layout: 'right',
-  },
-  {
-    id: 'muscle-recovery',
-    headline: 'Train hard. Not stupid.',
-    subheadline: 'Know exactly which muscles need rest',
-    imageSrc: IMAGES.muscleMap,
-    layout: 'left',
-  },
-  {
-    id: 'workout-library',
-    headline: '790 exercises. Zero guesswork',
-    subheadline: null,
-    imageSrc: IMAGES.workouts,
-    layout: 'right',
-  },
-  {
-    id: 'achievements-section',
-    headline: 'Progress you can feel',
-    subheadline: null,
-    imageSrc: IMAGES.achievements,
-    layout: 'left',
-  },
-  {
     id: 'onboarding-section',
     headline: 'Built around you from day one',
-    subheadline: null,
+    subheadline: 'Smart onboarding that learns your goals, experience, and preferences.',
     imageSrc: IMAGES.onboarding,
     layout: 'right',
   },
   {
     id: 'profile-section',
     headline: 'Your training, your data',
-    subheadline: null,
+    subheadline: 'Complete ownership of your fitness journey.',
     imageSrc: IMAGES.profile,
     layout: 'left',
   },
@@ -127,7 +100,14 @@ export default function LandingPage() {
       <SocialProof />
       <StickyScrollStory images={IMAGES} />
 
-      {featureSections.map((section) => (
+      {/* Swipe Logging standalone showcase */}
+      <FeatureShowcase {...featureSections[0]} />
+
+      {/* Bento Grid — 4 features in a premium grid */}
+      <BentoGrid images={IMAGES} />
+
+      {/* Remaining feature showcases */}
+      {featureSections.slice(1).map((section) => (
         <FeatureShowcase key={section.id} {...section} />
       ))}
 

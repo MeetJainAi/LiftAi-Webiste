@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 
 const stats = [
-  { value: 790, suffix: '+', label: 'exercises' },
-  { value: 25, suffix: '', label: 'achievements' },
-  { value: 20, suffix: '+', label: 'data points' },
-  { value: 12, suffix: '-week', label: 'tracking' },
+  { value: 790, suffix: '+', label: 'exercises', desc: 'in the library' },
+  { value: 25, suffix: '', label: 'achievements', desc: 'to unlock' },
+  { value: 20, suffix: '+', label: 'data points', desc: 'per session' },
+  { value: 12, suffix: '-week', label: 'tracking', desc: 'intelligent cycles' },
 ];
 
 function CountUp({ target, suffix }) {
@@ -30,7 +30,7 @@ function CountUp({ target, suffix }) {
 
   useEffect(() => {
     if (!started) return;
-    const duration = 1500;
+    const duration = 1800;
     const steps = 60;
     const increment = target / steps;
     let current = 0;
@@ -51,20 +51,28 @@ function CountUp({ target, suffix }) {
 
 export default function SocialProof() {
   return (
-    <section data-testid="social-proof" className="py-16 border-y border-white/[0.06]">
+    <section data-testid="social-proof" className="py-20 md:py-24 relative">
+      {/* Top border with accent fade */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-[600px] h-px bg-gradient-to-r from-transparent via-[#A3BCA7]/20 to-transparent" />
+      {/* Bottom border */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] max-w-[600px] h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          {stats.map((stat, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 reveal stagger-children">
+          {stats.map((stat) => (
             <div
               key={stat.label}
-              className={`text-center reveal reveal-delay-${i + 1}`}
+              className="text-center group"
               data-testid={`stat-${stat.label.replace(/\s/g, '-')}`}
             >
-              <div className="text-3xl md:text-4xl font-serif-heading font-light text-[#F0EDE8] tracking-tight">
+              <div className="text-4xl md:text-5xl font-serif-heading font-light text-[#F0EDE8] tracking-tight number-highlight">
                 <CountUp target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[#9B9B9B] text-xs mt-2.5 uppercase tracking-[0.2em] font-light">
+              <div className="text-[#9B9B9B] text-[11px] mt-3 uppercase tracking-[0.2em] font-medium">
                 {stat.label}
+              </div>
+              <div className="text-[#9B9B9B]/40 text-[10px] mt-1 tracking-wide hidden md:block">
+                {stat.desc}
               </div>
             </div>
           ))}
