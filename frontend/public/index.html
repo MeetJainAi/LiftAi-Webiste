@@ -1,158 +1,420 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LiftAi — The AI workout tracker for iPhone</title>
+  <meta name="description" content="LiftAi plans your next workout from your real history, recovery, and nutrition. 790+ exercises, AI coaching, HealthKit, no ads.">
+  <meta name="theme-color" content="#F6F2EA">
+  <link rel="canonical" href="https://liftai.club/">
 
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>Emergent | Fullstack App</title>
-        <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
-        <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <meta property="og:title" content="LiftAi — The AI workout tracker for iPhone">
+  <meta property="og:description" content="Know exactly what to lift today, and why. Plan, log, coach, eat, and review strength training from one iPhone app.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://liftai.club/">
+  <meta property="og:image" content="https://liftai.club/screenshots/01_dashboard.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LiftAi — The AI workout tracker for iPhone">
+  <meta name="twitter:description" content="Know exactly what to lift today, and why.">
+  <meta name="twitter:image" content="https://liftai.club/screenshots/01_dashboard.png">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "LiftAi",
+    "operatingSystem": "iOS 17",
+    "applicationCategory": "HealthApplication",
+    "description": "AI workout tracker for iPhone. Plans, logs, coaches, and reviews strength training using your real history, Apple Health recovery, and nutrition.",
+    "url": "https://liftai.club/",
+    "offers": [
+      { "@type": "Offer", "name": "LiftAi Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "LiftAi Pro Monthly", "price": "9.99", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "LiftAi Pro Annual", "price": "79.99", "priceCurrency": "USD" }
+    ]
+  }
+  </script>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <a
-            id="emergent-badge"
-            target="_blank"
-            href="https://app.emergent.sh/?utm_source=emergent-badge"
-            style="
-                display: inline-flex !important;
-                box-sizing: border-box;
-                width: 178px;
-                height: 40px;
-                padding: 8px 12px 8px 12px;
-                align-items: center !important;
-                gap: 8px;
-                border-radius: 50px !important;
-                background: #000 !important;
-                position: fixed !important;
-                bottom: 16px;
-                right: 16px;
-                text-decoration: none;
-                font-family: -apple-system, BlinkMacSystemFont,
-                    &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell,
-                    &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-                    sans-serif !important;
-                font-size: 12px !important;
-                z-index: 9999 !important;
-            "
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M15.5702 8.13142C15.7729 8.0412 16.0007 8.18878 15.9892 8.4103C15.8374 11.3192 14.0965 14.0405 11.2531 15.3065C8.40964 16.5725 5.2224 16.0453 2.95912 14.2117C2.78676 14.072 2.82955 13.804 3.03219 13.7137L4.95677 12.8568C5.04866 12.8159 5.15446 12.823 5.24204 12.8725C6.73377 13.7153 8.59176 13.8649 10.2772 13.1145C11.9626 12.3641 13.0947 10.8833 13.4665 9.21075C13.4883 9.11256 13.5539 9.02918 13.6457 8.98827L15.5702 8.13142Z" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.3066 4.74698L15.5067 5.19653C15.5759 5.35178 15.5061 5.53366 15.3508 5.60278L1.29992 11.8586C1.14467 11.9278 0.962794 11.8579 0.893675 11.7027L0.701732 11.2716L0.693457 11.2531C-1.10317 7.21778 0.711626 2.49007 4.74692 0.693443C8.78221 -1.10318 13.51 0.711693 15.3066 4.74698ZM2.82356 8.55367C2.63552 8.63739 2.41991 8.51617 2.40853 8.31065C2.28373 6.05724 3.53858 3.85787 5.72286 2.88536C7.90715 1.91286 10.3813 2.45199 11.9724 4.05256C12.1175 4.19854 12.0633 4.43988 11.8753 4.5236L2.82356 8.55367Z" fill="white"/>
-            </svg>
-            <p
-                style="
-                    color: #FFF !important;
-                    font-family: 'Inter', sans-serif !important;
-                    font-size: 13px !important;
-                    font-style: normal !important;
-                    font-weight: 600 !important;
-                    line-height: 20px !important;
-                    margin: 0 !important;
-                    white-space: nowrap !important;
-                "
-            >
-                Made with Emergent
-            </p>
-        </a>
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
-                session_recording: {
-                    recordCrossOriginIframes: true,
-                    capturePerformance: false,
-                },
-            });
-        </script>
-    </body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="/" class="brand">Lift<span>Ai</span></a>
+    <div class="nav-links">
+      <a href="/#product">Product</a>
+      <a href="/#coach">Coach</a>
+      <a href="/#nutrition">Nutrition</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/compare.html">Compare</a>
+      <a class="nav-cta" href="/pricing.html">View plans</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">AI workout tracker for iPhone</p>
+        <h1>Know exactly what to lift today, and why.</h1>
+        <p class="lede">LiftAi reads your workouts, Apple Health recovery, and nutrition. Every gym session opens with a plan you can defend. Every session ends with one thing worth keeping.</p>
+        <p class="hero-proof">Built in San Francisco by a lifter who got tired of opening five apps to plan one workout.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:support@liftai.club?subject=Notify%20me%20when%20LiftAi%20launches">Coming soon to App Store <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="/compare.html">See how it works</a>
+        </div>
+        <div class="hero-trust">
+          <span>iPhone, iOS 17+</span>
+          <span>790+ exercises</span>
+          <span>Apple Health native</span>
+          <span>No ads, ever</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="LiftAi app screenshots">
+        <div class="device-stack">
+          <figure class="device main-device">
+            <img src="screenshots/01_dashboard.png" alt="LiftAi dashboard showing today's smart session, readiness score, and recovery insights">
+          </figure>
+          <figure class="device side-device top">
+            <img src="screenshots/03_active_workout.png" alt="LiftAi active workout screen with set logging and rest timer">
+          </figure>
+          <figure class="device side-device bottom">
+            <img src="screenshots/05_stats.png" alt="LiftAi progress analytics with goal rings, volume, and PRs">
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <section class="metrics-section" aria-labelledby="metrics-title">
+      <div class="section-heading compact reveal">
+        <p class="eyebrow">Built for adherence</p>
+        <h2 id="metrics-title">Open the app. Know what to lift.</h2>
+      </div>
+      <div class="metric-grid reveal">
+        <article>
+          <span class="metric-value">790+</span>
+          <span class="metric-label">exercise database</span>
+          <p>Build workouts from a broad exercise library without starting every session from a blank page.</p>
+        </article>
+        <article>
+          <span class="metric-value">3/day</span>
+          <span class="metric-label">free AI coaching</span>
+          <p>Free users can ask the AI fitness coach three questions per day; Pro unlocks unlimited coaching.</p>
+        </article>
+        <article>
+          <span class="metric-value">25</span>
+          <span class="metric-label">achievement tiers</span>
+          <p>Bronze through Diamond strength milestones, tied to actual sets and reps — earned, not unlocked.</p>
+        </article>
+        <article>
+          <span class="metric-value">0</span>
+          <span class="metric-label">ads, ever</span>
+          <p>No ads, no trackers, no data resold. LiftAi is funded by subscriptions, not your attention.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="product" class="product-scroll" aria-label="LiftAi product walkthrough">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Product walkthrough</p>
+        <h2>Plan, log, coach, review.</h2>
+      </div>
+
+      <div class="walkthrough">
+        <aside class="sticky-phone" aria-hidden="true">
+          <div class="phone-frame">
+            <img class="phone-screen active" data-screen="0" src="screenshots/01_dashboard.png" alt="">
+            <img class="phone-screen" data-screen="1" src="screenshots/02_coach.png" alt="">
+            <img class="phone-screen" data-screen="2" src="screenshots/03_active_workout.png" alt="">
+            <img class="phone-screen" data-screen="3" src="screenshots/05_stats.png" alt="">
+          </div>
+          <div class="rail-index">
+            <span class="active" data-dot="0">Plan</span>
+            <span data-dot="1">Coach</span>
+            <span data-dot="2">Log</span>
+            <span data-dot="3">Review</span>
+          </div>
+        </aside>
+
+        <div class="walkthrough-copy">
+          <article class="feature-row reveal" data-step="0">
+            <div class="row-number">01</div>
+            <div>
+              <p class="eyebrow">Plan</p>
+              <h3>Start with a session that respects your recent work.</h3>
+              <p>LiftAi reads your workout history, muscle recovery, profile inputs, and available HealthKit context to suggest what to train next, with reasoning you can understand before you commit.</p>
+              <dl class="aligned-facts">
+                <div><dt>Readiness</dt><dd>Rest, HRV, RHR, and recovery context where the user grants access.</dd></div>
+                <div><dt>Muscles</dt><dd>Freshness signals reduce the chance of repeating the wrong stress too soon.</dd></div>
+                <div><dt>Reasoning</dt><dd>“Why this plan” explains the recommendation instead of hiding it behind a black box.</dd></div>
+              </dl>
+              <img class="inline-phone" src="screenshots/01_dashboard.png" alt="LiftAi dashboard screen">
+            </div>
+          </article>
+
+          <article id="coach" class="feature-row reveal" data-step="1">
+            <div class="row-number">02</div>
+            <div>
+              <p class="eyebrow">AI fitness coach</p>
+              <h3>Ask better questions because the coach has your training context.</h3>
+              <p>The AI coach can use recent workouts, PRs, equipment, goals, nutrition logs, and recovery context, making answers more specific than a generic chat prompt.</p>
+              <dl class="aligned-facts">
+                <div><dt>Chat</dt><dd>Streaming answers, with recent history kept locally on your device.</dd></div>
+                <div><dt>Images</dt><dd>Send a meal, a piece of equipment, or a progress shot for context.</dd></div>
+                <div><dt>Plans</dt><dd>Pro members get AI-built plans pulled from real history, not generic templates.</dd></div>
+              </dl>
+              <img class="inline-phone" src="screenshots/02_coach.png" alt="LiftAi AI coach screen">
+            </div>
+          </article>
+
+          <article class="feature-row reveal" data-step="2">
+            <div class="row-number">03</div>
+            <div>
+              <p class="eyebrow">Gym log</p>
+              <h3>Track sets without breaking the rhythm of the workout.</h3>
+              <p>The active workout view keeps logging fast: swipe sets, adjust reps or weight, start rests, and keep moving while the details stay organized in the background.</p>
+              <dl class="aligned-facts">
+                <div><dt>Swipe</dt><dd>Right to log, left to skip, with visible set progress.</dd></div>
+                <div><dt>Adjust</dt><dd>Previous-weight and quick-change controls reduce typing.</dd></div>
+                <div><dt>Recover</dt><dd>Rest timer and progress state stay visible in the flow.</dd></div>
+              </dl>
+              <img class="inline-phone" src="screenshots/03_active_workout.png" alt="LiftAi active workout screen">
+            </div>
+          </article>
+
+          <article class="feature-row reveal" data-step="3">
+            <div class="row-number">04</div>
+            <div>
+              <p class="eyebrow">Progress analytics</p>
+              <h3>Review the signals that matter after the workout is done.</h3>
+              <p>LiftAi organizes total volume, session averages, PRs, muscle activity, weekly trends, and estimated strength changes, so your progress is easier to read over time.</p>
+              <dl class="aligned-facts">
+                <div><dt>Volume</dt><dd>Total and per-session work summaries.</dd></div>
+                <div><dt>Trends</dt><dd>Weekly volume, muscle distribution, and exercise curves.</dd></div>
+                <div><dt>Progress</dt><dd>Goal rings and PR counts make the month readable.</dd></div>
+              </dl>
+              <img class="inline-phone" src="screenshots/05_stats.png" alt="LiftAi progress analytics screen">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="founder-section reveal" aria-label="Founder note">
+      <div>
+        <p class="panel-label">Why LiftAi exists</p>
+        <div class="founder-meta">
+          <strong>Meet Shah</strong>
+          <span>Founder, LiftAi</span>
+          <span>San Francisco · 3x/week lifter</span>
+        </div>
+      </div>
+      <blockquote class="founder-quote">
+        <q>Coaching, logging, recovery, food — every serious lifter ends up juggling four apps and a notes file. So I built the one app I wanted to open before the gym, and the one I want to review on Sunday night.</q>
+        <footer>— Meet, founder</footer>
+      </blockquote>
+    </section>
+
+    <section id="nutrition" class="nutrition-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Nutrition</p>
+        <h2>One app for the session and the plate.</h2>
+      </div>
+
+      <div class="nutrition-hero reveal">
+        <div class="nutrition-hero-copy">
+          <p class="panel-label">Daily macros</p>
+          <h3>Calories, protein, carbs, fat — at a glance.</h3>
+          <p>Targets calibrated to your goals, body stats, and weekly training volume. Daily rings tell you exactly where you stand before your next meal.</p>
+          <ul class="nutrition-list">
+            <li><strong>Photo log.</strong> Snap your plate. Macros get estimated and you confirm before saving.</li>
+            <li><strong>Barcode scan.</strong> Point at any label. Calories and macros populate instantly.</li>
+            <li><strong>USDA-backed search.</strong> Branded foods, restaurant chains, and barcodes — search and save in two taps.</li>
+            <li><strong>Saved meals &amp; custom foods.</strong> Re-log a recurring meal in seconds. Define foods that aren't in the database.</li>
+            <li><strong>Water tracking.</strong> Hydration sits beside macros, so it's part of the picture.</li>
+          </ul>
+        </div>
+        <figure class="nutrition-hero-shot">
+          <img src="screenshots/10_nutrition_dashboard.png" alt="LiftAi nutrition dashboard with macro rings and quick-log shortcuts">
+        </figure>
+      </div>
+
+      <div class="nutrition-pair reveal">
+        <article class="nutrition-feature with-shot">
+          <div>
+            <p class="panel-label">Logger</p>
+            <h3>Five ways to log, one place to look.</h3>
+            <p>Search, scan, snap, ask, or write — the food logger blends every entry method into one clean view. Pick the path that takes the fewest taps for what you're eating.</p>
+          </div>
+          <figure class="nutrition-shot small">
+            <img src="screenshots/11_nutrition_logger.png" alt="LiftAi food logger with Search, Scan, and Photo modes">
+          </figure>
+        </article>
+        <article class="nutrition-feature">
+          <p class="panel-label">Weekly view</p>
+          <h3>Nutrition trends, not just daily numbers.</h3>
+          <p>Weekly average calories, macro splits, and consistency flow into the AI coach so its plans match how you actually eat — not how you say you eat. The picture gets sharper week over week.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="extras-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Beyond the basics</p>
+        <h2>The details serious lifters notice.</h2>
+      </div>
+
+      <div class="extras-grid reveal">
+        <article class="extra-card extra-large">
+          <div class="extra-copy">
+            <p class="panel-label">Exercise library</p>
+            <h3>790+ exercises, browsable by muscle, equipment, or movement pattern.</h3>
+            <p>Each exercise ships with form notes, primary and secondary muscles, equipment requirements, and difficulty. Build templates from the library or roll your own custom exercise.</p>
+            <ul class="extra-bullets">
+              <li>Filter by muscle group, equipment, or experience level</li>
+              <li>Smart search finds variants instantly</li>
+              <li>Custom exercises sync across devices</li>
+            </ul>
+          </div>
+          <figure class="extra-shot">
+            <img src="screenshots/08_library.png" alt="LiftAi exercise library showing the 790+ exercise database with filters">
+          </figure>
+        </article>
+
+        <article class="extra-card">
+          <div class="extra-copy">
+            <p class="panel-label">Achievements</p>
+            <h3>25 milestones, Bronze to Diamond.</h3>
+            <p>Strength milestones, consistency streaks, volume thresholds. Earned, not unlocked — every tier is tied to actual training data.</p>
+          </div>
+          <figure class="extra-shot small">
+            <img src="screenshots/06_achievements.png" alt="LiftAi achievements screen showing Bronze to Diamond tiers">
+          </figure>
+        </article>
+
+        <article class="extra-card">
+          <div class="extra-copy">
+            <p class="panel-label">Recovery heatmap</p>
+            <h3>See which muscles need rest before you start.</h3>
+            <p>The recovery heatmap colors muscle groups by freshness. Pair with Apple Health readiness signals for a session that respects your body, not just your calendar.</p>
+          </div>
+          <figure class="extra-shot small">
+            <img src="screenshots/07_muscle_map.png" alt="LiftAi muscle recovery heatmap showing freshness by muscle group">
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="conversion-band reveal" aria-label="Pricing call to action">
+      <div>
+        <p class="eyebrow">Choose the right depth</p>
+        <h2>Start free. Upgrade when the coach earns it.</h2>
+      </div>
+      <div class="conversion-actions">
+        <a class="button primary" href="/pricing.html">View Free and Pro <span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="/compare.html">See what changes</a>
+      </div>
+    </section>
+
+    <section id="privacy" class="privacy-section reveal">
+      <div>
+        <p class="eyebrow">Privacy</p>
+        <h2>Your training data, handled plainly.</h2>
+      </div>
+      <div>
+        <p>Encrypted in transit and at rest. Never sold. Never used to train ad models. Apple Health is opt-in, and you can revoke any permission, export your data, or delete your account in two taps.</p>
+        <div class="text-links">
+          <a href="/privacy.html">Privacy policy</a>
+          <a href="/terms.html">Terms of service</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-section reveal">
+      <p class="eyebrow">LiftAi</p>
+      <h2>Plan, log, coach, review. One iPhone app.</h2>
+      <div class="hero-actions">
+        <a class="button primary" href="/pricing.html">See plans <span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="mailto:support@liftai.club?subject=Notify%20me%20when%20LiftAi%20launches">Get notified at launch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="/" class="brand">Lift<span>Ai</span></a>
+      <p>AI workout tracking for iPhone.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="/#product">Product</a>
+      <a href="/#coach">Coach</a>
+      <a href="/#nutrition">Nutrition</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/compare.html">Compare</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:support@liftai.club">Support</a>
+    </nav>
+    <p class="copyright">© 2026 LiftAi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
+
+    const rows = document.querySelectorAll('.feature-row');
+    const screens = document.querySelectorAll('.phone-screen');
+    const dots = document.querySelectorAll('.rail-index span');
+
+    const setActiveScreen = (step) => {
+      screens.forEach((screen) => screen.classList.toggle('active', screen.dataset.screen === step));
+      dots.forEach((dot) => dot.classList.toggle('active', dot.dataset.dot === step));
+    };
+
+    const screenObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveScreen(entry.target.dataset.step);
+      });
+    }, { rootMargin: '-42% 0px -42% 0px' });
+
+    rows.forEach((row) => screenObserver.observe(row));
+
+    const siteNav = document.querySelector('.site-nav');
+    if (siteNav) {
+      const updateNav = () => siteNav.classList.toggle('scrolled', window.scrollY > 32);
+      updateNav();
+      window.addEventListener('scroll', updateNav, { passive: true });
+    }
+
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (supportsHover && !reduceMotion) {
+      document.querySelectorAll('.metric-grid article, .extra-card, .nutrition-feature, .plan-card, .faq-list article').forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mx', x + '%');
+          card.style.setProperty('--my', y + '%');
+        });
+        card.addEventListener('pointerleave', () => {
+          card.style.removeProperty('--mx');
+          card.style.removeProperty('--my');
+        });
+      });
+    }
+  </script>
+</body>
 </html>

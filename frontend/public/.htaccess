@@ -1,0 +1,41 @@
+# Hostinger / LiteSpeed / Apache config — mirrors vercel.json behavior
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Clean URLs: serve /privacy and /terms via the .html files (matches vercel.json redirects)
+RewriteRule ^privacy/?$ /privacy.html [L,R=301]
+RewriteRule ^terms/?$   /terms.html   [L,R=301]
+RewriteRule ^pricing/?$ /pricing.html [L,R=301]
+RewriteRule ^compare/?$ /compare.html [L,R=301]
+
+# Security headers (mirrors vercel.json)
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Long-cache static assets (CSS / images / fonts)
+  <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp|woff2|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML: short cache so updates roll out fast
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Pretty error pages (optional — falls back to default if files missing)
+ErrorDocument 404 /index.html
+
+# Disable directory listing
+Options -Indexes
+
+# Block access to dotfiles (e.g. .git, .env)
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
